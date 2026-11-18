@@ -309,16 +309,3 @@ on this OOF set (`similarity_oof.py`):
    val-only ones (which were single-model). The linear-probe, kNN-AUC, precision@k, and
    silhouette metrics above are unaffected by this — they evaluate each lesion's local
    geometry, which the OOF construction preserves.
-
-## Roadmap
-
-- **Week 1 — Milestone 1 (done):** dataset, training pipeline, baseline ResNet18 (CV mean val AUC 0.873 ± 0.019).
-- **Week 2 (done):** 512-D embeddings, cosine/Euclidean similarity, t-SNE/PCA, nearest-neighbor retrieval, ImageNet-features control (`embeddings.py`, `similarity.py`, `embedding_eval.py`).
-- **Week 3 (done):** Grad-CAM attention visualizations (`gradcam.py`).
-- **Rigorous re-evaluation (done):** 5-fold patient-grouped CV with OOF embeddings over all 581 melanomas (`cv_oof.py`, `cv_metrics.py`, `similarity_oof.py`).
-- **Next:** a stronger backbone (e.g. EfficientNet) to see whether embedding separability scales with classifier quality, and extending the similarity machinery toward longitudinal lesion comparison.
-
-## Notes
-
-Generated outputs (`data/`, `.venv/`, `artifacts/`, model weights, embeddings) are
-gitignored — they are reproducible from the code above and should not be committed.
